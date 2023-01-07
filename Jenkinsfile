@@ -7,13 +7,20 @@ pipeline {
     stages {
           stage ('Build') {
               steps{
-   
+  
+                  git url: 'https://github.com/dathathteya/online-bank.git'
+
+    withMaven(
+    
+        maven: 'maven-3', // (1)
+        mavenLocalRepo: '.repository', // (2)
+        mavenSettingsConfig: 'my-maven-settings' // (3)
+    ) {
+
       // Run the maven build
       sh "mvn clean verify"
-                  export MAVEN_HOME=/opt/maven
-export PATH=$PATH:$MAVEN_HOME/bin
-mvn --version
-mvn clean package
+
+    } // withMa
                }
   }
         stage ("Initialize Jenkins Env") {
