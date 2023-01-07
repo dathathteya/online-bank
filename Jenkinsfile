@@ -10,7 +10,7 @@ pipeline {
   
                   git url: 'https://github.com/dathathteya/online-bank.git'
 
-    withMaven(
+    withGradle(
     
         maven: 'maven-3', // (1)
         mavenLocalRepo: '.repository', // (2)
