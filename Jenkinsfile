@@ -5,24 +5,7 @@ pipeline {
     }
     
     stages {
-          stage ('Build') {
-              steps{
-  
-                  git url: 'https://github.com/dathathteya/online-bank.git'
 
-    withGradle(
-    
-        maven: 'maven-3', // (1)
-        mavenLocalRepo: '.repository', // (2)
-        mavenSettingsConfig: 'my-maven-settings' // (3)
-    ) {
-
-      // Run the maven build
-      sh "mvn clean verify"
-
-    } // withMa
-               }
-  }
         stage ("Initialize Jenkins Env") {
          steps {
             sh '''
