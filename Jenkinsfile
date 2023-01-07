@@ -8,7 +8,7 @@ pipeline {
           stage ('Build') {
               steps{
 
-    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+    git url: 'https://github.com/dathathteya/online-bank.git'
 
     withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
