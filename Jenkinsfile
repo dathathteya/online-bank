@@ -43,6 +43,10 @@ pipeline {
             //    sh 'docker kill cloudbank 2> /dev/null'
             //    sh 'docker rm bankmysql 2> /dev/null'
             //    sh 'docker rm cloudbank 2> /dev/null'
+                sh export MAVEN_HOME=/opt/maven
+               sh export PATH=$PATH:$MAVEN_HOME/bin
+               sh mvn --version
+                sh mvn clean package
                 sh 'docker stop bankmysql || true && docker rm bankmysql || true'
                 sh 'docker run --detach --name=bankmysql --env="MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}" -p 3306:3306 mysql'
                 sh 'sleep 20'
