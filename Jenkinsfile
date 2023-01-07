@@ -6,6 +6,7 @@ pipeline {
     
     stages {
           stage ('Build') {
+              steps{
 
     git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
 
@@ -25,6 +26,7 @@ pipeline {
       sh "mvn clean verify"
 
     } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
+              }
   }
         stage ("Initialize Jenkins Env") {
          steps {
