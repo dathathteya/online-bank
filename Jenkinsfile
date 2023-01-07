@@ -10,6 +10,10 @@ pipeline {
    
       // Run the maven build
       sh "mvn clean verify"
+                  export MAVEN_HOME=/opt/maven
+export PATH=$PATH:$MAVEN_HOME/bin
+mvn --version
+mvn clean package
                }
   }
         stage ("Initialize Jenkins Env") {
