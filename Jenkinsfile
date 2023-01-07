@@ -3,7 +3,29 @@ pipeline {
     parameters {
         string(name: 'MYSQL_ROOT_PASSWORD', defaultValue: 'root', description: 'MySQL password')
     }
+    
     stages {
+          stage ('Build') {
+
+    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+
+    withMaven(
+        // Maven installation declared in the Jenkins "Global Tool Configuration"
+        maven: 'maven-3', // (1)
+        // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
+        mavenLocalRepo: '.repository', // (2)
+        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
+        // We recommend to define Maven settings.xml globally at the folder level using
+        // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
+        // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
+        mavenSettingsConfig: 'my-maven-settings' // (3)
+    ) {
+
+      // Run the maven build
+      sh "mvn clean verify"
+
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
+  }
         stage ("Initialize Jenkins Env") {
          steps {
             sh '''
@@ -43,10 +65,7 @@ pipeline {
             //    sh 'docker kill cloudbank 2> /dev/null'
             //    sh 'docker rm bankmysql 2> /dev/null'
             //    sh 'docker rm cloudbank 2> /dev/null'
-                sh export MAVEN_HOME=/opt/maven
-               sh export PATH=$PATH:$MAVEN_HOME/bin
-               sh mvn --version
-                sh mvn clean package
+         
                 sh 'docker stop bankmysql || true && docker rm bankmysql || true'
                 sh 'docker run --detach --name=bankmysql --env="MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}" -p 3306:3306 mysql'
                 sh 'sleep 20'
