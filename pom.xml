@@ -144,11 +144,19 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>${cucumber.spring}</version>
-			<scope>test</scope>
-		</dependency>
+                     <groupId>info.cukes</groupId>
+                     <artifactId>cucumber-junit</artifactId>
+                     <version>1.2.6</version>
+                     <type>pom</type>
+                      <scope>test</scope>
+                </dependency>
+<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
+               <dependency>
+                   <groupId>info.cukes</groupId>
+                   <artifactId>cucumber-core</artifactId>
+                   <version>1.2.6</version>
+                   <type>pom</type>
+                  </dependency>
 
 		<dependency>
 			<groupId>com.jayway.restassured</groupId>
