@@ -162,6 +162,12 @@
             <version>2.12.2</version>
         </dependency>
 		<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports-cucumber4-adapter</artifactId>
+    <version>${version}</version>
+</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
