@@ -121,28 +121,25 @@
 			<version>${json.unit}</version>
 			<scope>test</scope>
 		</dependency>
-//cucumebr new
-		<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-java</artifactId>
-    <version>6.8.0</version>
-    <scope>test</scope>
-</dependency>
-		<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-junit</artifactId>
-    <version>6.8.0</version>
-    <scope>test</scope>
-</dependency>
-		<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-spring</artifactId>
-    <version>6.8.0</version>
-    <scope>test</scope>
-</dependency>
 
-		
-
+		<dependency>
+    			<groupId>io.cucumber</groupId>
+    			<artifactId>cucumber-java</artifactId>
+    			<version>6.8.0</version>
+    			<scope>test</scope>
+		</dependency>
+		<dependency>
+    			<groupId>io.cucumber</groupId>
+    			<artifactId>cucumber-junit</artifactId>
+    			<version>6.8.0</version>
+    			<scope>test</scope>
+		</dependency>
+		<dependency>
+  			<groupId>io.cucumber</groupId>
+    			<artifactId>cucumber-spring</artifactId>
+    			<version>6.8.0</version>
+    			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.jayway.restassured</groupId>
 			<artifactId>rest-assured</artifactId>
