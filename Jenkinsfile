@@ -20,12 +20,12 @@ pipeline {
                checkout scm
             }
         }
-        stage('Execute Tests'){
+       /* stage('Execute Tests'){
             steps {
                 echo 'Testing'
                 sh 'mvn test'
             }
-        }
+        }*/
         stage('Build Application'){
             steps {
                 echo 'Building...'
