@@ -35,7 +35,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image'
-                sh 'docker build -t dathathteya/online-bank:1 .'
+                sh 'docker build -t dathathteya/online-bank:0.0.1-SNAPSHOT .'
             }
         }
        stage('Create Database') {
